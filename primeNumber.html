@@ -1,0 +1,18 @@
+<html>
+    <script>
+        let n = parseInt(window.prompt("enter any number :"));
+        let count = 0,i,j;
+        for(i=1;i<=n;i++){
+            count++;
+            for(j=1;j<=i;j++){
+                if(i%j==0){
+                    count++;
+                }
+            }
+            if(count==2){
+                document.write(i);
+            }
+        }
+    </script>
+    <body></body>
+</html>

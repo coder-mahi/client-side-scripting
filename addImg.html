@@ -1,0 +1,30 @@
+<html>
+<body>
+    <center>
+        <input type="button" value="Add Image" id="btn" onclick="addImg()">
+        <br>
+        <input type="image" id="img">
+    </center>
+</body>
+<script>
+  function addImage() {
+    const img = document.createElement("img");
+    img.src = "gradient1.png";
+    document.body.appendChild(img);
+  }
+</script>
+<!-- <script>
+    const btnImg = document.getElementById("btn");
+
+    function addImg(){
+        btnImg.innerHTML = <img src="css\gradient1.png"/>;
+    }
+</script> -->
+</html>
+
+<!-- <button id="button"></button>
+
+<script type="text/javascript">
+    var buttons = document.getElementById("button");
+    buttons.innerHTML = '<img src="images\ok.png" />';
+</script> -->

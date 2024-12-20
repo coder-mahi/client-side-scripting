@@ -1,0 +1,92 @@
+<!-- shinde_mahesh 145 -->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Verify..You Are Not Robot!</title>
+    <style>
+        #otp {
+            background-color: yellow;
+        }
+
+        #btn1 {
+            background-color: cyan;
+        }
+
+        #verify {
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body bgcolor="wheat" onload="generate(4)">
+    <center>
+        <fieldset>
+            <center>
+                <legend>##Verify That You Are Not Robot...!</legend>
+            </center>
+            <hr><br>
+            <label>Generated OTP : </label>
+            <input id="otp" type="text">
+            <!-- <p id="otp" onchange="otp_generated(this)"></p> -->
+            <br><br>
+            <input id="otp_input" type="text" placeholder="enter OTP here to verify" onkeyup="entering_otp(event)">
+            <br><br>
+            <input id="verify" type="button" value="Click To Verify" onclick="verify()" onmouseover="over(this)"
+                onmouseout="out(this)">
+            <input id="btn1" type="reset" value="Regenerate OTP" onmouseover="over(this)" onmouseout="out(this)"
+                onclick="generate(4)">
+        </fieldset>
+        <br><br>
+        <p id="para"></p>
+    </center>
+</body>
+<script>
+    let count = 0;
+    let OTP = 0;
+    function generate(limit) {
+        var digits = '0123456789';
+        let OTP = '';
+        for (let i = 0; i < limit; i++) {
+            OTP += digits[Math.floor(Math.random() * 10)];
+        }
+        // document.getElementById("otp").innerHTML = OTP;
+        document.getElementById("otp").value = OTP;
+    }
+    function entering_otp(e) {
+        let key = e.key;
+        // let otp = parseInt(document.getElementById("otp"));
+        let otp = parseInt(document.getElementById("otp").value);
+        let input_otp = parseInt(document.getElementById("otp_input").value);        
+        count++;
+        if (count == 4) {
+            if (key > 0 && key < 9) {
+                if (otp === input_otp) {
+                    window.alert("Welcome, you has been verified as HUMAN...!");
+                    document.getElementById("para").innerHTML = "WELCOME...!";
+                }else{
+                    window.alert("Wrong Creadentials...!");
+                }
+            } else {
+                console.log("Enter Digits Only..!");
+            }
+        }
+    }
+    function verify() {
+        let otp = parseInt(document.getElementById("otp").value);
+        let input_otp = parseInt(document.getElementById("otp_input").value);
+        if (otp == input_otp) {
+            window.alert("Welcome, you has been verified as HUMAN...!");
+            document.getElementById("para").innerHTML = "WELCOME...!";
+        } else {
+            window.alert("Wrong Creadentials...!");
+        }
+    }
+
+    function over(obj) {
+        obj.style.backgroundColor = "green";
+    }
+    function out(obj) {
+        obj.style.backgroundColor ="red";
+    }
+</script>
+</html>

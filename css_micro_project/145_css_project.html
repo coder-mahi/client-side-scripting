@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <title>145 CSS micro_project</title>
+    <style>
+            .container {
+            width: 1000px;
+            height: 400px;
+            text-align: center;
+            margin: 50px auto;
+            padding:10px;
+            border: 2px solid black;
+            border-radius: 100px;
+        }
+        .switch_btn {
+            height: fit-content;
+            width: 100px;
+            margin: 20px;
+            font-size: 20px;
+            box-shadow: 10px 10px 10px 10px;
+            border-radius: 10px;
+        }
+
+        #light_status {
+            font-family: 'Arial';
+            font-style: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="light_div">
+            <img id="light" src="light_off.png" />
+        </div>
+        <br>
+        <div class="switch_div">
+            <button class="switch_btn" id="light_off" value="OFF" onclick="btn_clicked(this)">OFF</button>
+            <button class="switch_btn" id="light_on" value="ON" onclick="btn_clicked(this)">ON</button>
+        </div>
+        <br>
+        <label id="light_status"></label>
+    </div>
+</body>
+<script>
+        document.getElementById("light_on").style.backgroundColor = "green";
+        document.getElementById("light_off").style.backgroundColor = "red";
+        document.getElementById("light_status").innerHTML = "LIGHT IS : OFF"
+
+    function btn_clicked(obj) {
+        if (obj.value == "OFF") {
+            document.getElementById("light").src = "light_off.png";
+            document.getElementById("light_status").innerHTML = "LIGHT IS : OFF"
+        }
+        if (obj.value == "ON") {
+            document.getElementById("light").src = "light_on.png";
+            document.getElementById("light_status").innerHTML = "LIGHT IS : ON"
+        }
+    }
+    function over_btn(obj) {
+        if (obj.value == "OFF") {
+            document.getElementById("light").src = "light_off.png";
+            document.getElementById("light_status").innerHTML = "LIGHT IS : OFF"
+        }
+        if (obj.value == "ON") {
+            document.getElementById("light").src = "light_on.png";
+            document.getElementById("light_status").innerHTML = "LIGHT IS : ON"
+        }
+    }
+    const toggleSun = document.getElementById('light_on');
+    const toggleMoon = document.getElementById('light_off');
+    const body = document.querySelector('body');
+    body.style.background = 'black';
+    body.style.color = 'white';
+    
+    toggleSun.addEventListener('click',function(){
+        body.style.background = 'yellow';
+        body.style.color = 'black';
+        body.style.transition = '2s'
+    })
+
+    toggleMoon.addEventListener('click',function(){
+        body.style.background = 'black';
+        body.style.color = 'white';
+        body.style.transition = '2s'
+    })
+</script>
+</html>

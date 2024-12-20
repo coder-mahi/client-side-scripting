@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <form name="myForm">
+            <center>
+                <p name="para">YOU WANT READ ALL COOKIES</p><br><hr>
+                <button name="btn1" onclick='read()'>YES</button>
+                <button>NO</button>
+            </center>
+        </form>
+    </body>
+    <script>
+        let name = window.prompt("enter key :");
+        let value = window.prompt("enter value :");
+        if(name!= "" && value!=""){
+            document.cookie = name + "="+ value;
+            alert("cookies set successfully...!");
+        }else{
+            console.log("please enter key & value...!");
+        }
+        // document.forms.myForm.para = "YOU WANT READ COOKIES";
+        // document.forms.myForm.btn1 = "YES";
+        function read(){
+            //ALL Cookies
+        let cookies = document.cookie;
+        document.write("ALL COOKIES -->"+cookies);
+
+        document.writeln("<br><hr>splitted Cookies :")
+        cookiesArr = cookies.split(';');
+        for(let i = 0; i<=cookiesArr.length;i++){
+            let name = cookiesArr[i].split('=')[0];
+            let value = cookiesArr[i].split('=')[1];
+            document.write("key = "+name +" Value = "+value);
+        }
+    }
+    </script>
+</html>

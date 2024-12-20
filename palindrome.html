@@ -1,0 +1,30 @@
+<html>
+<title>Hello JS</title>
+<head>
+    <script>
+        function check() {
+            var reminder, temp, sum = 0;
+            var number = Number(document.getElementById("inputNumber").value);
+            temp = number;
+            while (number > 0) {
+                reminder = number % 10;
+                number = parseInt(number / 10);
+                sum = sum * 10 + reminder;
+            }
+            if (temp == sum) {
+                window.alert("The Entered number is Palindrome");
+            } else {
+                window.alert("The Entered number is Not Palindrome");
+            }
+        }
+    </script>
+    </head>
+<body bgcolor="grey">
+<h1>Enter Number to check whether the number is Palindrome or not...</h1>
+<hr>
+<center>
+    <input id="inputNumber" type="text" placeholder="Enter Number Here" />
+    <button onclick="check()">CHECK</button>
+</center>
+</body>
+</html>
